@@ -6,7 +6,7 @@ import authSlice from './authSlice';
 const store = configureStore({
     reducer: {
         auth : authSlice
-        //TODO: add more slices here for posts
+        //add more slices here for posts
     }
 });
 

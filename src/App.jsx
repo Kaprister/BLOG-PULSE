@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux'
 import './App.css'
 import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
-import { Header } from './components/index'
+import { Header, Loader } from './components/index'
 import { Footer } from './components/index'
 import { Outlet } from 'react-router-dom'
+
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -24,16 +25,18 @@ function App() {
   }, [])
   
   return !loading ? (
-    <div className=' w-full min-h-screen flex flex-wrap justify-center items-center bg-gray-400'>
-      <div className='w-full block'>
-        <Header />
-        <main>
-            <Outlet />
-        </main>
-        <Footer />
-      </div>
+    <div className='min-h-screen flex flex-wrap content-between text-white bg-[#00040F]'>
+        <div className='w-full block'>
+            <Header />
+            <main>
+                <Outlet />
+            </main>
+            <Footer />
+        </div>
+        <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
+        <div className="absolute z-[0] w-[30%] h-[30%] -left-1/2 bottom-0 rounded-full blue__gradient" />
     </div>
-  ) : null
+  ) : <div className='min-h-screen flex justify-center items-center text-white bg-[#00040F]'><Loader/></div>;
 }
 
 export default App

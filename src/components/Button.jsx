@@ -1,16 +1,16 @@
-/* eslint-disable react/prop-types */
 import React from 'react'
 
-function Button({children, 
-    type = 'button',
-    bgColor = 'bg-blue-600',
-    textColor = 'text-white',
-    className = '',
+function Button({
+    children,
+    type = "button",
+    bgColor = "",
+    textColor = "",
+    className = "",
     ...props
 }) {
   return (
-    <button className={`px-4 py-2 rounded-lg ${textColor} ${className} ${bgColor} `} {...props}>
-      {children}
+    <button className={`px-2 py-2 outline-none ${bgColor} ${textColor} ${className} `} type={type} {...props}>
+        {children}
     </button>
   )
 }
